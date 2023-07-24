@@ -1,6 +1,6 @@
 # Setup
 
-git clone https://github.com/Bizis-Thowl/wine_pipeline.git\
+git clone https://github.com/Bizis-Thowl/wine_pipeline.git \
 cd wine_pipeline
 
 ## Initialize virtual environment and activate
