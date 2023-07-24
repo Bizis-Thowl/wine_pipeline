@@ -1,0 +1,305 @@
+{
+  "collections": {
+    "label_stats": {
+      "attributes": {
+        "_id": "ObjectId",
+        "label_id": "ObjectId",
+        "data_id": "ObjectId",
+        "statistics": "dict"
+      },
+      "description": "Contains relevant statistcs about the label, such as overall number of labels and how they are distributed over the different classes."
+    },
+    "partial_dependence_collection": {
+      "attributes": {
+        "_id": "ObjectId",
+        "pd_meta_ID": "ObjectId",
+        "feature": "str",
+        "class": "int",
+        "average": "list"
+      },
+      "description": "Contains a list of values for a partial dependence plot for a specific feature and class."
+    },
+    "trustscore_meta": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "statistics": "dict"
+      },
+      "description": "Contains information about trustscores for a specific model based on the test dataset. Described statistics are: number of datapoints of the dataset, mean, standard deviation, median, min and max value of the trust scores and the number of extreme outliers of the trust scores."
+    },
+    "anchor_meta": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "info": "dict",
+        "classes": "list",
+        "features": "list"
+      },
+      "description": "Contains general information about the parameters of the anchor function such as disc_perc or threshold."
+    },
+    "pd_meta": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "data_id": "ObjectId"
+      },
+      "description": "Meta object for partial dependence plots."
+    },
+    "feature": {
+      "attributes": {
+        "_id": "ObjectId",
+        "name": "str",
+        "description": "str",
+        "dtype": "str"
+      },
+      "description": "Name and description of one individual feature."
+    },
+    "ice_collection": {
+      "attributes": {
+        "_id": "ObjectId",
+        "pd_meta_ID": "ObjectId",
+        "feature": "str",
+        "class": "int",
+        "index": "int",
+        "individual": "list"
+      },
+      "description": "Contains a list of values for a individual conditional expectation plot for a specific feature, class and datapoint."
+    },
+    "label": {
+      "attributes": {
+        "_id": "ObjectId",
+        "name": "str",
+        "description": "str",
+        "dtype": "str"
+      },
+      "description": "Name and description of the label."
+    },
+    "trustscore": {
+      "attributes": {
+        "_id": "ObjectId",
+        "trustscores_meta_id": "ObjectId",
+        "extreme": "bool",
+        "index": "int",
+        "score": "float",
+        "neighbour": "int"
+      },
+      "description": "Contains information about the trustscore of a specific model prediction from the testset."
+    },
+    "anchor": {
+      "attributes": {
+        "_id": "ObjectId",
+        "anchor_meta_id": "ObjectId",
+        "index": "int",
+        "anchor": "list",
+        "precision": "float",
+        "coverage": "float"
+      },
+      "description": "Contains information about the anchor of a specific model prediction from the testset."
+    },
+    "train_config": {
+      "attributes": {
+        "_id": "ObjectId",
+        "train_process_id": "ObjectId",
+        "timers": "dict",
+        "parameters": "dict",
+        "scores": "dict",
+        "rank": "int"
+      },
+      "description": "Contains information about the different model configurations in the hyperparameter search process to find the best and final model for the classification task."
+    },
+    "model": {
+      "attributes": {
+        "_id": "ObjectId",
+        "stage": "str",
+        "model_name": "str",
+        "pipeline": "list",
+        "location": "str"
+      },
+      "description": "Contains information about the model configuration and its pipeline."
+    },
+    "datapoint": {
+      "attributes": {
+        "_id": "ObjectId",
+        "data_id": "ObjectId",
+        "index": "int",
+        "values": "list"
+      },
+      "description": "Contains the feature values of an individual datapoint."
+    },
+    "model_scores": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "general": "dict",
+        "confusion_matrices": "dict",
+        "learning_curve": "list"
+      },
+      "description": "Contains relevant statistics about the model performance."
+    },
+    "train_process": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "strategies": "list",
+        "approach": "str",
+        "optimization_metric": "str"
+      },
+      "description": "Contains information about the hyperparameter optimization process."
+    },
+    "shap": {
+      "attributes": {
+        "_id": "ObjectId",
+        "shap_meta_id": "ObjectId",
+        "class": "int",
+        "index": "int",
+        "values": "list",
+        "interactions": "dict"
+      },
+      "description": "Holds shap values and shap interactions for an individual datapoint and class from the testset."
+    },
+    "pd_values_collection": {
+      "attributes": {
+        "_id": "ObjectId",
+        "pd_meta_ID": "ObjectId",
+        "feature": "str",
+        "class": "int",
+        "values": "list"
+      },
+      "description": "Contains the partial dependence values for each feature and class for the related partial dependence and ice data."
+    },
+    "shap_meta": {
+      "attributes": {
+        "_id": "ObjectId",
+        "model_id": "ObjectId",
+        "expl_loc": "str",
+        "classes": "list",
+        "features": "list"
+      },
+      "description": "Meta object for the shap values-"
+    },
+    "feature_stats": {
+      "attributes": {
+        "_id": "ObjectId",
+        "feature_id": "ObjectId",
+        "data_id": "ObjectId",
+        "statistics": "dict"
+      },
+      "description": "Contains general statistics about the features, such as mean, median, standard deviation, smallest value and highest value."
+    },
+    "data": {
+      "attributes": {
+        "_id": "ObjectId",
+        "type": "str",
+        "location": "dict",
+        "classes": "list",
+        "features": "list",
+        "name": "str"
+      },
+      "description": "General Information about the data."
+    }
+  },
+  "relations": {
+    "label_stats": [
+      {
+        "field": "label_id",
+        "references": "label"
+      },
+      {
+        "field": "data_id",
+        "references": "data"
+      }
+    ],
+    "partial_dependence_collection": [
+      {
+        "field": "pd_meta_ID",
+        "references": "pd_meta"
+      }
+    ],
+    "trustscore_meta": [
+      {
+        "field": "model_id",
+        "references": "model"
+      }
+    ],
+    "anchor_meta": [
+      {
+        "field": "model_id",
+        "references": "model"
+      }
+    ],
+    "pd_meta": [
+      {
+        "field": "model_id",
+        "references": "model"
+      },
+      {
+        "field": "data_id",
+        "references": "data"
+      }
+    ],
+    "ice_collection": [
+      {
+        "field": "pd_meta_ID",
+        "references": "pd_meta"
+      }
+    ],
+    "anchor": [
+      {
+        "field": "anchor_meta_id",
+        "references": "anchor_meta"
+      }
+    ],
+    "train_config": [
+      {
+        "field": "train_process_id",
+        "references": "train_process"
+      }
+    ],
+    "datapoint": [
+      {
+        "field": "data_id",
+        "references": "data"
+      }
+    ],
+    "model_scores": [
+      {
+        "field": "model_id",
+        "references": "model"
+      }
+    ],
+    "train_process": [
+      {
+        "field": "model_id",
+        "references": "model"
+      }
+    ],
+    "shap": [
+      {
+        "field": "shap_meta_id",
+        "references": "shap_meta"
+      }
+    ],
+    "pd_values_collection": [
+      {
+        "field": "pd_meta_ID",
+        "references": "pd_meta"
+      }
+    ],
+    "shap_meta": [
+      {
+        "field": "model_id",
+        "references": "model"
+      }
+    ],
+    "feature_stats": [
+      {
+        "field": "feature_id",
+        "references": "feature"
+      },
+      {
+        "field": "data_id",
+        "references": "data"
+      }
+    ]
+  }
+}

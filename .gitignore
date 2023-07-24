@@ -1,0 +1,13 @@
+# Ignore venv (Python virtual environment) directory
+.venv/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore any other generated or temporary files
+*.pyc
+__pycache__/
+*.pyo
+*.egg-info/
+dist/
+build/
