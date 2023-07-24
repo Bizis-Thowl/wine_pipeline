@@ -1,7 +1,17 @@
 # Setup
 
-git clone https://github.com/Bizis-Thowl/wine_pipeline.git
+git clone https://github.com/Bizis-Thowl/wine_pipeline.git\
 cd wine_pipeline
-python -m venv venv
-# Activate the virtual environment (as shown in the previous answer)
+
+## Initialize virtual environment and activate
+### Windows: 
+
+python -m venv venv\
+venv\Scripts\activate
+
+### macOS/Linux: 
+python3 -m venv venv\
+source venv/bin/activate
+
+## Install requirements in environment
 pip install -r requirements.txt
